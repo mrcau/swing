@@ -301,6 +301,16 @@
         })
 
          if(this.apiItem){
+           const userIndex = this.localItems.userItems.findIndex(item=>item.title ==='사용자')
+           const itemIndex = this.localItems.optionItems.findIndex(item=>item.title ==='사용자')
+          if(userIndex>-1){
+            this.localItems.userItems[userIndex] = {title:'사용자',item:[...dataItem]}
+            this.localData.userItems[userIndex] = {title:'사용자',item:[...dataItem]}
+          }
+          if(itemIndex>-1){
+            this.localItems.optionItems[itemIndex] = {title:'사용자',item:[...dataItem]}
+            this.localData.optionItems[itemIndex] = {title:'사용자',item:[...dataItem]}
+          } 
           if(!this.localItems.userItems.find(key=> key.title==='사용자')){
             this.localItems.userItems.unshift({title:'사용자',item:[...dataItem]})
             this.localData.userItems.unshift({title:'사용자',item:[...dataItem]})
